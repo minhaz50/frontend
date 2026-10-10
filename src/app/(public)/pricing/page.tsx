@@ -7,7 +7,8 @@ import { BookShipmentButton, GuestOnly } from "@/components/shared/auth-aware";
 
 export const metadata: Metadata = {
   title: "Pricing",
-  description: "How SwiftLine calculates shipment pricing by zone-pair, weight, and service level.",
+  description:
+    "How parceloHub calculates shipment pricing by zone-pair, weight, and service level.",
 };
 
 const STEPS = [
@@ -35,9 +36,12 @@ export default function PricingPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-2xl text-center">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Pricing</h1>
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          Pricing
+        </h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          Every shipment is priced automatically before you confirm it — here&apos;s exactly how.
+          Every shipment is priced automatically before you confirm it —
+          here&apos;s exactly how.
         </p>
       </div>
 
@@ -50,7 +54,9 @@ export default function PricingPage() {
               </div>
               <CardTitle className="mt-3 text-base">{step.title}</CardTitle>
             </CardHeader>
-            <CardContent className="pt-0 text-sm text-muted-foreground">{step.description}</CardContent>
+            <CardContent className="pt-0 text-sm text-muted-foreground">
+              {step.description}
+            </CardContent>
           </Card>
         ))}
       </div>
@@ -63,13 +69,16 @@ export default function PricingPage() {
           <div>
             <h2 className="font-semibold">Want an exact quote?</h2>
             <p className="mt-1 max-w-md text-sm text-muted-foreground">
-              Pricing is calculated live against your organization&apos;s actual tariff table once
-              you&apos;re signed in and have picked real pickup/delivery zones — sign in to see the
-              precise price before you confirm a shipment.
+              Pricing is calculated live against your organization&apos;s actual
+              tariff table once you&apos;re signed in and have picked real
+              pickup/delivery zones — sign in to see the precise price before
+              you confirm a shipment.
             </p>
           </div>
           <div className="flex gap-3">
-            <BookShipmentButton loggedInLabel="Book a shipment">Create an account</BookShipmentButton>
+            <BookShipmentButton loggedInLabel="Book a shipment">
+              Create an account
+            </BookShipmentButton>
             <GuestOnly>
               <Button asChild variant="outline">
                 <Link href="/login">Sign in</Link>
@@ -82,9 +91,10 @@ export default function PricingPage() {
       <div className="mt-12 rounded-lg border bg-secondary/30 p-6 text-sm text-muted-foreground">
         <p className="font-medium text-foreground">A note on fairness</p>
         <p className="mt-1">
-          If no specific tariff exists for your exact zone pair and service level, the platform
-          falls back to your organization&apos;s default rate, and ultimately to a platform-wide
-          default — you&apos;re never left without a price.
+          If no specific tariff exists for your exact zone pair and service
+          level, the platform falls back to your organization&apos;s default
+          rate, and ultimately to a platform-wide default — you&apos;re never
+          left without a price.
         </p>
       </div>
     </div>

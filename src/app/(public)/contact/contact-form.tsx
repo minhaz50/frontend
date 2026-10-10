@@ -7,11 +7,21 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().min(1, "Email is required").email("Enter a valid email address"),
+  email: z
+    .string()
+    .min(1, "Email is required")
+    .email("Enter a valid email address"),
   subject: z.string().min(3, "Subject must be at least 3 characters"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
@@ -32,7 +42,7 @@ export function ContactForm() {
 
   function onSubmit(values: ContactFormValues) {
     const body = `From: ${values.name} (${values.email})%0D%0A%0D%0A${encodeURIComponent(values.message)}`;
-    const mailtoUrl = `mailto:hello@swiftline.example?subject=${encodeURIComponent(values.subject)}&body=${body}`;
+    const mailtoUrl = `mailto:hello@parceloHub.example?subject=${encodeURIComponent(values.subject)}&body=${body}`;
     window.location.assign(mailtoUrl);
     toast.success("Opening your email client...");
     form.reset();
@@ -87,13 +97,21 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>Message</FormLabel>
               <FormControl>
-                <Textarea rows={5} placeholder="Tell us what's going on..." {...field} />
+                <Textarea
+                  rows={5}
+                  placeholder="Tell us what's going on..."
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
+        <Button
+          type="submit"
+          className="w-full"
+          disabled={form.formState.isSubmitting}
+        >
           Send Message
         </Button>
       </form>

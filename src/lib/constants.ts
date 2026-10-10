@@ -1,6 +1,7 @@
 import type { Role } from "@/types";
 
-export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000/api/v1";
+export const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000/api/v1";
 
 export const TOKEN_COOKIE = "clx_access_token";
 export const ROLE_COOKIE = "clx_role";
@@ -12,25 +13,31 @@ export const REFRESH_COOKIE = "clx_refresh_token";
  * ADMIN -> "Admin". OPS_MANAGER/HUB_MANAGER/SUPER_ADMIN exist on the
  * backend for internal staff but have no dedicated frontend here.
  */
-export const DEMO_ACCOUNTS: { role: Role; label: string; email: string; password: string; blurb: string }[] = [
+export const DEMO_ACCOUNTS: {
+  role: Role;
+  label: string;
+  email: string;
+  password: string;
+  blurb: string;
+}[] = [
   {
     role: "ADMIN",
     label: "Admin",
-    email: "admin@swiftline.example",
+    email: "admin@parceloHub.example",
     password: "Password123!",
     blurb: "Full platform oversight — users, analytics, audit logs",
   },
   {
     role: "CUSTOMER",
     label: "User",
-    email: "customer@swiftline.example",
+    email: "customer@parceloHub.example",
     password: "Password123!",
     blurb: "Book shipments, track parcels, manage payments",
   },
   {
     role: "COURIER",
     label: "Provider",
-    email: "courier1@swiftline.example",
+    email: "courier1@parceloHub.example",
     password: "Password123!",
     blurb: "Accept assignments, complete deliveries, track earnings",
   },
@@ -74,7 +81,13 @@ export const SHIPMENT_STATUS_LABEL: Record<string, string> = {
 
 export const SHIPMENT_STATUS_VARIANT: Record<
   string,
-  "default" | "secondary" | "destructive" | "outline" | "success" | "warning" | "brand"
+  | "default"
+  | "secondary"
+  | "destructive"
+  | "outline"
+  | "success"
+  | "warning"
+  | "brand"
 > = {
   CREATED: "secondary",
   PICKUP_SCHEDULED: "outline",

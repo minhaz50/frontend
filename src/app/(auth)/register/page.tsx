@@ -3,7 +3,8 @@ import { RegisterForm } from "./register-form";
 
 export const metadata: Metadata = {
   title: "Register",
-  description: "Create a SwiftLine account to start booking shipments and tracking parcels.",
+  description:
+    "Create a parceloHub account to start booking shipments and tracking parcels.",
 };
 
 export default function RegisterPage() {

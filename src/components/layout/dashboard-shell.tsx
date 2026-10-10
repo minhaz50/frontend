@@ -3,7 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { HomeIcon, Loader2Icon, LogOutIcon, MenuIcon, PackageIcon, XIcon } from "lucide-react";
+import {
+  HomeIcon,
+  Loader2Icon,
+  LogOutIcon,
+  MenuIcon,
+  PackageIcon,
+  XIcon,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
@@ -52,7 +59,12 @@ export function DashboardShell({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHydrated, isLoadingUser, user, pathname]);
 
-  if (!isHydrated || isLoadingUser || !user || !allowedRoles.includes(user.role)) {
+  if (
+    !isHydrated ||
+    isLoadingUser ||
+    !user ||
+    !allowedRoles.includes(user.role)
+  ) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <Loader2Icon className="size-6 animate-spin text-muted-foreground" />
@@ -64,11 +76,14 @@ export function DashboardShell({
     <div className="flex min-h-screen">
       {/* Desktop sidebar */}
       <aside className="hidden w-64 shrink-0 border-r bg-secondary/20 lg:flex lg:flex-col">
-        <Link href="/" className="flex h-16 items-center gap-2 border-b px-6 font-semibold hover:bg-accent/50">
+        <Link
+          href="/"
+          className="flex h-16 items-center gap-2 border-b px-6 font-semibold hover:bg-accent/50"
+        >
           <span className="flex size-7 items-center justify-center rounded-lg bg-brand text-brand-foreground">
             <PackageIcon className="size-4" />
           </span>
-          SwiftLine
+          parceloHub
         </Link>
         <nav className="flex-1 space-y-1 p-3">
           {navItems.map((item) => {
@@ -79,7 +94,9 @@ export function DashboardShell({
                 href={item.href}
                 className={cn(
                   "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                  active ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-accent hover:text-foreground",
+                  active
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:bg-accent hover:text-foreground",
                 )}
               >
                 <item.icon className="size-4" />
@@ -95,17 +112,29 @@ export function DashboardShell({
             </Avatar>
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-medium">{user.name}</p>
-              <p className="truncate text-xs text-muted-foreground">{ROLE_LABEL[user.role]}</p>
+              <p className="truncate text-xs text-muted-foreground">
+                {ROLE_LABEL[user.role]}
+              </p>
             </div>
           </div>
           <ThemeToggle showLabel className="mt-1 w-full justify-start gap-2" />
-          <Button asChild variant="ghost" size="sm" className="w-full justify-start gap-2">
+          <Button
+            asChild
+            variant="ghost"
+            size="sm"
+            className="w-full justify-start gap-2"
+          >
             <Link href="/">
               <HomeIcon className="size-4" />
               Back to website
             </Link>
           </Button>
-          <Button variant="ghost" size="sm" className="w-full justify-start gap-2" onClick={signOut}>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="w-full justify-start gap-2"
+            onClick={signOut}
+          >
             <LogOutIcon className="size-4" />
             Sign out
           </Button>
@@ -119,12 +148,20 @@ export function DashboardShell({
             <span className="flex size-7 items-center justify-center rounded-lg bg-brand text-brand-foreground">
               <PackageIcon className="size-4" />
             </span>
-            SwiftLine
+            parceloHub
           </Link>
           <div className="flex items-center gap-1">
             <ThemeToggle />
-            <button className="p-2" onClick={() => setMobileOpen((o) => !o)} aria-label="Toggle menu">
-              {mobileOpen ? <XIcon className="size-5" /> : <MenuIcon className="size-5" />}
+            <button
+              className="p-2"
+              onClick={() => setMobileOpen((o) => !o)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? (
+                <XIcon className="size-5" />
+              ) : (
+                <MenuIcon className="size-5" />
+              )}
             </button>
           </div>
         </header>
@@ -140,7 +177,9 @@ export function DashboardShell({
                   onClick={() => setMobileOpen(false)}
                   className={cn(
                     "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium",
-                    active ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-accent",
+                    active
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:bg-accent",
                   )}
                 >
                   <item.icon className="size-4" />
@@ -156,7 +195,12 @@ export function DashboardShell({
               <HomeIcon className="size-4" />
               Back to website
             </Link>
-            <Button variant="ghost" size="sm" className="w-full justify-start gap-2" onClick={signOut}>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start gap-2"
+              onClick={signOut}
+            >
               <LogOutIcon className="size-4" />
               Sign out
             </Button>

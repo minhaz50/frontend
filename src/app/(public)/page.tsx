@@ -10,13 +10,18 @@ import {
   WarehouseIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { BookShipmentButton } from "@/components/shared/auth-aware";
 
 export const metadata: Metadata = {
   title: "Home",
   description:
-    "SwiftLine moves parcels between customers, couriers, and hubs with live tracking, transparent pricing, and real payment processing.",
+    "parceloHub moves parcels between customers, couriers, and hubs with live tracking, transparent pricing, and real payment processing.",
 };
 
 const FEATURES = [
@@ -71,9 +76,9 @@ export default function HomePage() {
               Courier logistics that actually tracks every step
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              From pickup scheduling to hub transfers to final delivery, SwiftLine coordinates
-              customers, couriers, and hub staff on one platform — with a status for every parcel,
-              every time.
+              From pickup scheduling to hub transfers to final delivery,
+              parceloHub coordinates customers, couriers, and hub staff on one
+              platform — with a status for every parcel, every time.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <BookShipmentButton size="lg">
@@ -89,9 +94,12 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-semibold tracking-tight">Built for real logistics operations</h2>
+          <h2 className="text-3xl font-semibold tracking-tight">
+            Built for real logistics operations
+          </h2>
           <p className="mt-3 text-muted-foreground">
-            Every feature below is backed by a real workflow on the platform — not a mockup.
+            Every feature below is backed by a real workflow on the platform —
+            not a mockup.
           </p>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -114,22 +122,30 @@ export default function HomePage() {
           <div className="grid gap-8 text-center sm:grid-cols-3">
             <div>
               <p className="text-4xl font-bold tracking-tight">15+</p>
-              <p className="mt-1 text-sm text-muted-foreground">Shipment states tracked</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Shipment states tracked
+              </p>
             </div>
             <div>
               <p className="text-4xl font-bold tracking-tight">2</p>
-              <p className="mt-1 text-sm text-muted-foreground">Active hub zones</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Active hub zones
+              </p>
             </div>
             <div>
               <p className="text-4xl font-bold tracking-tight">3</p>
-              <p className="mt-1 text-sm text-muted-foreground">Service levels: Standard, Express, Same-Day</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Service levels: Standard, Express, Same-Day
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-semibold tracking-tight">Ready to ship something?</h2>
+        <h2 className="text-3xl font-semibold tracking-tight">
+          Ready to ship something?
+        </h2>
         <p className="mt-3 text-muted-foreground">
           Create an account and book your first shipment in under two minutes.
         </p>

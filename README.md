@@ -1,10 +1,10 @@
-# SwiftLine — Courier & Logistics Frontend
+# parceloHub — Courier & Logistics Frontend
 
 A Next.js 16 (App Router) frontend for the Courier & Logistics Management Platform backend. Every page connects to the real API — there is no mock data anywhere in the core workflows (auth, shipments, payments, courier assignments, admin management).
 
 ## 1. Required backend patch (do this first)
 
-The Stripe payment-success page (`/payment/success`) needs to know *which*
+The Stripe payment-success page (`/payment/success`) needs to know _which_
 payment to check. Stripe's `success_url` only gives back its own
 `session_id`, not your internal payment id, so add one query param to the
 success URL construction in the backend:
@@ -17,10 +17,12 @@ success URL construction in the backend:
 ```
 
 And update your backend `.env`:
+
 ```
 STRIPE_SUCCESS_URL=http://localhost:3000/payment/success
 STRIPE_CANCEL_URL=http://localhost:3000/payment/cancel
 ```
+
 (port 3000, since that's where this frontend runs by default — not 5000).
 
 Your Stripe Dashboard webhook endpoint / `stripe listen` command stays
@@ -42,15 +44,15 @@ Open `http://localhost:3000`. Make sure the backend is running and seeded
 The backend has 6 roles; this frontend builds a full UI for 3, per the
 project brief's "3 fixed primary roles" requirement:
 
-| Brief's generic role | Backend role | Frontend section |
-|---|---|---|
-| Admin | `ADMIN` (also accepts `SUPER_ADMIN`/`OPS_MANAGER`/`HUB_MANAGER` for route access) | `/admin/*` |
-| User | `CUSTOMER` | `/dashboard/*` |
-| Provider | `COURIER` | `/provider/*` |
+| Brief's generic role | Backend role                                                                      | Frontend section |
+| -------------------- | --------------------------------------------------------------------------------- | ---------------- |
+| Admin                | `ADMIN` (also accepts `SUPER_ADMIN`/`OPS_MANAGER`/`HUB_MANAGER` for route access) | `/admin/*`       |
+| User                 | `CUSTOMER`                                                                        | `/dashboard/*`   |
+| Provider             | `COURIER`                                                                         | `/provider/*`    |
 
 Demo login buttons on `/login` use the backend's seeded accounts
-(`admin@swiftline.example`, `customer@swiftline.example`,
-`courier1@swiftline.example`, all password `Password123!`).
+(`admin@parceloHub.example`, `customer@parceloHub.example`,
+`courier1@parceloHub.example`, all password `Password123!`).
 
 ## 4. Architecture decisions
 
@@ -73,7 +75,7 @@ unauthenticated or wrong-role visitors before a protected page's shell
 even renders. **This cookie check is a UX convenience, not the real
 security boundary** — a client-set cookie can be forged. The actual
 authorization enforcement is the backend's `auth(...roles)` guard on
-every endpoint, which re-validates the JWT and the user's *current*
+every endpoint, which re-validates the JWT and the user's _current_
 database role on every request. This is stated directly in code comments
 in `middleware.ts` and `auth-store.ts` rather than left implicit.
 
@@ -125,16 +127,16 @@ A few things that don't fully match the brief's checklist, and why:
 
 ## 6. Page inventory (23 routes total)
 
-| Category | Routes |
-|---|---|
-| Public (5) | `/`, `/about`, `/services`, `/contact`, `/pricing` |
-| Auth (2) | `/login`, `/register` |
-| Admin (3) | `/admin`, `/admin/manage`, `/admin/reports` |
+| Category               | Routes                                                                                         |
+| ---------------------- | ---------------------------------------------------------------------------------------------- |
+| Public (5)             | `/`, `/about`, `/services`, `/contact`, `/pricing`                                             |
+| Auth (2)               | `/login`, `/register`                                                                          |
+| Admin (3)              | `/admin`, `/admin/manage`, `/admin/reports`                                                    |
 | Customer (3 + 2 bonus) | `/dashboard`, `/dashboard/profile`, `/dashboard/payments`, `/dashboard/new`, `/dashboard/[id]` |
-| Provider (3) | `/provider`, `/provider/earnings`, `/provider/profile` |
-| Payment (2) | `/payment/success`, `/payment/cancel` |
-| Shared (2) | `not-found.tsx`, `error.tsx` |
-| Bonus (1) | `/track/[trackingId]` — public tracking lookup |
+| Provider (3)           | `/provider`, `/provider/earnings`, `/provider/profile`                                         |
+| Payment (2)            | `/payment/success`, `/payment/cancel`                                                          |
+| Shared (2)             | `not-found.tsx`, `error.tsx`                                                                   |
+| Bonus (1)              | `/track/[trackingId]` — public tracking lookup                                                 |
 
 Every list-bearing page (`/dashboard`, `/dashboard/payments`,
 `/admin/manage`, `/admin/reports`) has a `loading.tsx` skeleton and a

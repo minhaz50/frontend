@@ -5,16 +5,19 @@ import { ContactForm } from "./contact-form";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with the SwiftLine support team.",
+  description: "Get in touch with the parceloHub support team.",
 };
 
 export default function ContactPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="max-w-2xl">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Get in touch</h1>
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          Get in touch
+        </h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          Questions about a shipment, a courier partnership, or the platform itself — reach out below.
+          Questions about a shipment, a courier partnership, or the platform
+          itself — reach out below.
         </p>
       </div>
 
@@ -27,7 +30,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Email</p>
-                <p className="font-medium">hello@swiftline.example</p>
+                <p className="font-medium">hello@parceloHub.example</p>
               </div>
             </CardContent>
           </Card>
@@ -49,7 +52,9 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Hubs</p>
-                <p className="font-medium">Motijheel, Dhaka · Agrabad, Chattogram</p>
+                <p className="font-medium">
+                  Motijheel, Dhaka · Agrabad, Chattogram
+                </p>
               </div>
             </CardContent>
           </Card>

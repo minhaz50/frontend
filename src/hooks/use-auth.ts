@@ -12,7 +12,15 @@ import { ROLE_HOME } from "@/lib/constants";
 export function useAuth() {
   const router = useRouter();
   const queryClient = useQueryClient();
-  const { user, accessToken, refreshToken, isHydrated, setAuth, setUser, logout } = useAuthStore();
+  const {
+    user,
+    accessToken,
+    refreshToken,
+    isHydrated,
+    setAuth,
+    setUser,
+    logout,
+  } = useAuthStore();
 
   const meQuery = useQuery({
     queryKey: ["auth", "me"],
@@ -30,7 +38,10 @@ export function useAuth() {
         router.push(ROLE_HOME[result.user.role] ?? "/");
         return result;
       } catch (err) {
-        const message = err instanceof ApiRequestError ? err.message : "Login failed. Please try again.";
+        const message =
+          err instanceof ApiRequestError
+            ? err.message
+            : "Login failed. Please try again.";
         toast.error(message);
         throw err;
       }
@@ -39,15 +50,24 @@ export function useAuth() {
   );
 
   const register = useCallback(
-    async (payload: { name: string; email: string; password: string; phone?: string; organizationSlug: string }) => {
+    async (payload: {
+      name: string;
+      email: string;
+      password: string;
+      phone?: string;
+      organizationSlug: string;
+    }) => {
       try {
         const result = await authApi.register(payload);
         setAuth(result);
-        toast.success("Account created! Welcome to SwiftLine.");
+        toast.success("Account created! Welcome to parceloHub.");
         router.push(ROLE_HOME[result.user.role] ?? "/");
         return result;
       } catch (err) {
-        const message = err instanceof ApiRequestError ? err.message : "Registration failed. Please try again.";
+        const message =
+          err instanceof ApiRequestError
+            ? err.message
+            : "Registration failed. Please try again.";
         toast.error(message);
         throw err;
       }

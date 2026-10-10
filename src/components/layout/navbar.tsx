@@ -39,7 +39,7 @@ export function Navbar() {
           <span className="flex size-8 items-center justify-center rounded-lg bg-brand text-brand-foreground">
             <PackageIcon className="size-4.5" />
           </span>
-          <span>SwiftLine</span>
+          <span>ParceloHub</span>
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
@@ -75,7 +75,9 @@ export function Navbar() {
                 <DropdownMenuContent align="end" className="w-56">
                   <DropdownMenuLabel>
                     <p className="font-medium">{user.name}</p>
-                    <p className="text-xs font-normal text-muted-foreground">{ROLE_LABEL[user.role]}</p>
+                    <p className="text-xs font-normal text-muted-foreground">
+                      {ROLE_LABEL[user.role]}
+                    </p>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem asChild>
@@ -106,7 +108,11 @@ export function Navbar() {
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <XIcon className="size-5" /> : <MenuIcon className="size-5" />}
+            {mobileOpen ? (
+              <XIcon className="size-5" />
+            ) : (
+              <MenuIcon className="size-5" />
+            )}
           </button>
         </div>
       </div>

@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { ShieldCheckIcon, UsersIcon, WarehouseIcon, ZapIcon } from "lucide-react";
+import {
+  ShieldCheckIcon,
+  UsersIcon,
+  WarehouseIcon,
+  ZapIcon,
+} from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn how SwiftLine coordinates customers, couriers, and hubs on one logistics platform.",
+  description:
+    "Learn how parceloHub coordinates customers, couriers, and hubs on one logistics platform.",
 };
 
 const VALUES = [
@@ -38,18 +44,23 @@ export default function AboutPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="max-w-2xl">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">About SwiftLine</h1>
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          About parceloHub
+        </h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          SwiftLine is a courier and logistics management platform that coordinates the full
-          lifecycle of a parcel — from the moment a customer books a pickup to the moment it&apos;s
-          signed for at the destination.
+          parceloHub is a courier and logistics management platform that
+          coordinates the full lifecycle of a parcel — from the moment a
+          customer books a pickup to the moment it&apos;s signed for at the
+          destination.
         </p>
         <p className="mt-4 text-muted-foreground">
-          Rather than treating &quot;delivery status&quot; as a single free-text field, every
-          shipment here moves through a defined set of states — scheduled, assigned, picked up, at
-          a hub, in transit, out for delivery, delivered (or, when something goes wrong, failed and
-          returned). Each transition is logged, timestamped, and attributed to whoever triggered it,
-          so the full history of a parcel is always reconstructable.
+          Rather than treating &quot;delivery status&quot; as a single free-text
+          field, every shipment here moves through a defined set of states —
+          scheduled, assigned, picked up, at a hub, in transit, out for
+          delivery, delivered (or, when something goes wrong, failed and
+          returned). Each transition is logged, timestamped, and attributed to
+          whoever triggered it, so the full history of a parcel is always
+          reconstructable.
         </p>
       </div>
 
@@ -62,7 +73,9 @@ export default function AboutPage() {
               </div>
               <div>
                 <h3 className="font-semibold">{value.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{value.description}</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {value.description}
+                </p>
               </div>
             </CardContent>
           </Card>

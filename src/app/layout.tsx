@@ -5,19 +5,24 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "SwiftLine Couriers — Courier & Logistics Management",
-    template: "%s | SwiftLine Couriers",
+    default: "parceloHub Couriers — Courier & Logistics Management",
+    template: "%s | parceloHub Couriers",
   },
   description:
-    "Book pickups, track parcels in real time, and manage hub-to-hub logistics with SwiftLine's courier platform.",
+    "Book pickups, track parcels in real time, and manage hub-to-hub logistics with parceloHub's courier platform.",
   openGraph: {
-    title: "SwiftLine Couriers",
-    description: "Reliable courier and logistics management across every hub in the network.",
+    title: "parceloHub Couriers",
+    description:
+      "Reliable courier and logistics management across every hub in the network.",
     type: "website",
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className="h-full antialiased" suppressHydrationWarning>
       <head>

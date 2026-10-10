@@ -2,7 +2,11 @@ import Link from "next/link";
 import { PackageIcon } from "lucide-react";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 
-export default function AuthLayout({ children }: { children: React.ReactNode }) {
+export default function AuthLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <div className="relative flex min-h-screen flex-col bg-secondary/30">
       <div className="absolute top-4 right-4">
@@ -13,10 +17,12 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
           <span className="flex size-8 items-center justify-center rounded-lg bg-brand text-brand-foreground">
             <PackageIcon className="size-4.5" />
           </span>
-          <span>SwiftLine</span>
+          <span>parceloHub</span>
         </Link>
       </div>
-      <main className="flex flex-1 items-start justify-center px-4 pb-16">{children}</main>
+      <main className="flex flex-1 items-start justify-center px-4 pb-16">
+        {children}
+      </main>
     </div>
   );
 }
